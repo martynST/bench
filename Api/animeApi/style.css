@@ -1,0 +1,28 @@
+#header {
+    background: teal;
+    width: 100%;
+    padding-bottom: 5;
+}
+#shows {
+    width: 100%;
+}
+#showsTable {
+    width: 90%;
+    border-collapse: collapse;
+    margin-left: auto;
+    margin-right: auto;
+}
+#showsTable th{
+    text-align: center;
+    border-bottom: 1px solid rgb(59, 55, 55)
+}
+#showsTable td{
+    word-wrap: break-word;
+    padding: 10px;
+    text-align: left;
+    border-bottom: 1px solid rgb(59, 55, 55)
+}
+#showsTable tr {
+    vertical-align: top;
+    padding: 10px; 
+}

@@ -5,10 +5,40 @@
         keep track of what shows I've seen
     </title>
     <script src="index.js" type="module"></script>
+    <link rel="stylesheet" type="text/css" href="style.css">
 
 </head>
 
-    
+<body>
+    <div id='header'>
+        <center>
+            <H1>
+                WEEB STUFF
+            </H1>
+            <input type='text' id='animeName' size='50'>
+            <input type='button' id='addAnime' onclick='addShow()' value='add'>
+        </center>
+    </div>
+    <hr>
+    <div id='shows'>
+        <table id='showsTable'>
+            <tr>
+                <th>Name</th>
+                <th>studio</th>
+                <th>episodes</th>
+            </tr>
+            <tr>
+                <td>example show</td>
+                <td>example studio</td>
+                <td>example No. episodes</td>
+            </tr>
+            <tr>
+                <td>example show</td>
+                <td>example studio</td>
+                <td>example No. episodes</td>
+            </tr>
+        </table>
+    </div>
 </body>
 
 </html>
