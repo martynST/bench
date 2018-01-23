@@ -78,7 +78,6 @@ function combiningMatchUps(typeMatchUp) {
     return pokemonTypeMatchUpCombined;
 }
 export function getPokemonTypeMatchups(pokemon, pokemonNumber) {
-
     let typeMatchUpModifiers = [];
     let typeMatchIndividual = [];
     let pokemonTypeMatchUp = {

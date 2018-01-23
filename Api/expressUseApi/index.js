@@ -1,7 +1,7 @@
 import { getPokemonTypeMatchups } from "./PokemonAPI.js";
 
 
-function getTeamTypes() {
+function getTeamTypes() { 
     let myPokemon = [];
     let pokemonMatchUps = []
     for (let i = 0; i < 6; i++) {
