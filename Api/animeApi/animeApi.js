@@ -1,12 +1,16 @@
-let request = require('request');
-let apiUrl = "https://anilist.co/api/";
+const apiUrl = "https://anilist.co/api/";
+import {requestToken} from "./testing.js"
 
-export function getShowDetails(showName) {        
-    
-    /*getDets(showName).then(function () {
-            return null;
-        }
-    );*/
+export function getToken() {
+  return requestToken()
+}
+
+/*
+function token() {
+  const request = new Request(apiUrl+"/auth/authorize",{
+    method: "POST",
+
+  })
 }
 
 async function getDets(showName){
@@ -18,7 +22,25 @@ async function getDets(showName){
 
     console.log("result");
 }
-/*
+
+var data = null;
+
+var http = new XMLHttpRequest();
+http.withCredentials = true;
+
+http.addEventListener("readystatechange", function () {
+  if (this.readyState === 4) {
+    console.log(this.responseText);
+  }
+});
+
+http.open("POST", "https://anilist.co/api/auth/access_token?grant_type=client_credentials&client_id=martynt-sfop8&client_secret=LJd4O13TQZeBZi79Gb05");
+http.setRequestHeader("Cache-Control", "no-cache");
+http.setRequestHeader("Postman-Token", "85e63f8f-cbff-7c4a-c26a-cd464dd4191c");
+
+http.send(data);
+
+
 var http = require("https");
 
 var options = {
@@ -53,7 +75,7 @@ var req = http.request(options, function (res) {
 
 req.end();
 
-
+/*
 var request = require("request");
 
 var options = { method: 'POST',
@@ -71,4 +93,8 @@ request(options, function (error, response, body) {
 
   console.log(body);
 });
-*/
+
+POST /api/auth/access_token?grant_type=client_credentials&amp;client_id=martynt-sfop8&amp;client_secret=LJd4O13TQZeBZi79Gb05 HTTP/1.1
+Host: anilist.co
+Cache-Control: no-cache
+Postman-Token: e9d6b8f1-7f79-6898-937f-7b40b90812ca*/

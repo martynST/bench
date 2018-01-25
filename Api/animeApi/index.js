@@ -1,9 +1,8 @@
-import { getShowDetails } from "./animeApi.js";
+import {requestToken} from "./testing.js"
 
-function addShow()
-{
-    let showName = document.getElementById("animeName").value;
-    getShowDetails(showName);
+function getToken() {
+  console.log(requestToken());
 }
 
-window.addShow = addShow;
+
+window.getToken = getToken;
