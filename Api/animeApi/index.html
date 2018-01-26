@@ -6,18 +6,20 @@
     </title>
     <script src="index.js" type="module"></script>
     <link rel="stylesheet" type="text/css" href="style.css">
-
 </head>
 
-<body>
+<body onload="getToken()">
     <div id='header'>
         <center>
             <H1>
                 WEEB STUFF
             </H1>
             <input type='text' id='animeName' size='50'>
-            <input type='button' id='addAnime' onclick='getToken()' value='add'>
+            <input type='button' id='addAnime' onclick='search()' value='search'>
         </center>
+    </div>
+    <div id = 'searchResults'>
+
     </div>
     <hr>
     <div id='shows'>
@@ -26,16 +28,6 @@
                 <th>Name</th>
                 <th>studio</th>
                 <th>episodes</th>
-            </tr>
-            <tr>
-                <td>example show</td>
-                <td>example studio</td>
-                <td>example No. episodes</td>
-            </tr>
-            <tr>
-                <td>example show</td>
-                <td>example studio</td>
-                <td>example No. episodes</td>
             </tr>
         </table>
     </div>
