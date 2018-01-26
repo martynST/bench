@@ -61,6 +61,6 @@ function checkCode() {
     console.log(keyString)
     if (matched)
     {
-        console.log("DO A THING")
+        window.alert("good fucking job nerd")
     }
 }

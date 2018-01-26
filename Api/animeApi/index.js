@@ -1,4 +1,4 @@
-import {requestToken} from "./testing.js"
+import {requestToken} from "./animeApi.js"
 
 function getToken() {
   console.log(requestToken());
