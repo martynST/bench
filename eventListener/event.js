@@ -61,6 +61,6 @@ function checkCode() {
     console.log(keyString)
     if (matched)
     {
-        window.alert("good fucking job nerd")
+        window.alert("Konami Code")
     }
 }
