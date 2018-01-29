@@ -51,7 +51,6 @@ export async function getAnime(ids) {
 
   let result2 = await Promise.all(promise2);
 
-  console.log(result2)
 
   let anime = []
   for (let i = 0; i < ids.length; i++) {

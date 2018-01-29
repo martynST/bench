@@ -35,7 +35,7 @@ myFriends.addEventListener("mouseenter",() => {
     }    
 })
 
-//show drop down menu
+//show drop down menu, reduce the repetition in this
 home.addEventListener('mouseenter',() => homeMenu.style.display = "block");
 home.addEventListener('mouseleave',() => homeMenu.style.display = "none");
 about.addEventListener('mouseenter',() => aboutMenu.style.display = "block");

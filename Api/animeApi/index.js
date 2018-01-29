@@ -2,22 +2,34 @@ import { requestToken, getAnimeSearch, getAnime } from "./animeApi.js"
 
 const shows = [18679, 9253, 97986, 136];
 
-async function getToken() {
-  await requestToken();  
+async function startFunction() {
+  await requestToken();
   addShowsToTable();
+  window.addEventListener("keydown",(e) => {
+    if (e.key === "Enter" && document.activeElement.id === "animeName") {
+      search();
+    }
+  })
 }
 
 async function search() {
   let animeName = document.getElementById('animeName').value;
+  document.getElementById('animeName').value = "";
   let searchResults = await getAnimeSearch(animeName);
 
-  let searchTable = "<table><tr><th>title</th><th>status</th><th>episodes</th></tr>";
+  let searchTable = "<table><tr><th>Title</th><th>Status</th><th>Episodes</th></tr>";
   for (let i = 0; i < searchResults.length; i++) {
     searchTable += `<tr id='${searchResults[i].id}' onclick='addToList(${searchResults[i].id})'><td>${searchResults[i].title_english}</td><td>${searchResults[i].airing_status}</td><td>${searchResults[i].duration}</td></tr>`;
   }
   searchTable += "</table>";
 
-  document.getElementById('searchResults').innerHTML = "<hr>" + searchTable;
+  let cancelBtn = "<input type='button' id = 'cancel' value = 'Cancel' onClick='cancel()'>";
+
+  document.getElementById('searchResults').innerHTML = "<hr>" + searchTable + "<br>" + cancelBtn;
+}
+
+function cancel() {
+  document.getElementById('searchResults').innerHTML = "";
 }
 
 async function addShowsToTable() {
@@ -30,8 +42,8 @@ async function addShowsToTable() {
 }
 
 async function addToList(id) {
-  shows.push(id);  
-  document.getElementById('searchResults').innerHTML = "";  
+  shows.push(id);
+  document.getElementById('searchResults').innerHTML = "";
   let showDetails = await getAnime([id])
   addOneToTable(showDetails[0]);
 }
@@ -52,7 +64,8 @@ function addOneToTable(animeShow) {
 
 }
 
-window.getToken = getToken;
+window.startFunction = startFunction;
 window.search = search;
 window.addShowsToTable = addShowsToTable;
 window.addToList = addToList;
+window.cancel = cancel;
