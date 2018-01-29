@@ -1,15 +1,46 @@
 import { requestToken, getAnimeSearch, getAnime } from "./animeApi.js"
 
-const shows = [18679, 9253, 97986, 136];
+let shows;
 
 async function startFunction() {
   await requestToken();
+  await readAnimeFile();
+
   addShowsToTable();
-  window.addEventListener("keydown",(e) => {
+  window.addEventListener("keydown", (e) => {
     if (e.key === "Enter" && document.activeElement.id === "animeName") {
       search();
     }
+  });
+}
+
+async function readAnimeFile() {
+  let promise = fetch("http://localhost:3000/file/read", {
+    method: "GET",
+    headers: {
+      'Content-Type': 'application/json'
+    }
+  });
+
+  let result = await promise;
+
+  let promise2 = result.json();
+  let result2 = await promise2;
+
+  shows = result2.split(",").map((n) => parseInt(n));
+}
+
+function writeAnimeFile() {
+  const request = new Request("http://localhost:3000/file/write", {
+    method: "POST",
+    url: 'http://localhost:3000/file/write',
+    headers: {
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify(shows)
   })
+
+  fetch(request)
 }
 
 async function search() {
@@ -69,3 +100,4 @@ window.search = search;
 window.addShowsToTable = addShowsToTable;
 window.addToList = addToList;
 window.cancel = cancel;
+window.saveList = writeAnimeFile;
