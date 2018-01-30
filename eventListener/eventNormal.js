@@ -58,7 +58,6 @@ function checkCode() {
             matched = false;            
         }
     }
-    console.log(keyString)
     if (matched)
     {
         window.alert("Konami Code")
