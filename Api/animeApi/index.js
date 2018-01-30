@@ -82,17 +82,36 @@ async function addToList(id) {
 function addOneToTable(animeShow) {
 
   let table = document.getElementById("showsTable");
-  let row, cellTitle, cellStatus, cellEpisodes;
+  let row, cellTitle, cellStatus, cellEpisodes, cellDelete;
   row = table.insertRow(table.rows.length);
 
   cellTitle = row.insertCell(0);
   cellStatus = row.insertCell(1);
   cellEpisodes = row.insertCell(2);
+  cellDelete = row.insertCell(3);
 
   cellTitle.innerHTML = animeShow.title;
   cellStatus.innerHTML = animeShow.status;
   cellEpisodes.innerHTML = animeShow.episodes;
+  cellDelete.innerHTML = "X";
+  cellDelete.id = animeShow.id
+  cellDelete.onclick = deleteRowFromTableAndFile;
+}
 
+function deleteRowFromTableAndFile(event) {
+  let element = event.target;
+  event.preventDefault();
+  deleteFromFile(element.attributes["id"].value);
+  deleteFromTable(element);
+}
+
+function deleteFromTable(element) {
+  let row = element.parentNode;
+  row.parentNode.removeChild(row);
+}
+
+function deleteFromFile(id) {
+  shows.splice(shows.indexOf(id),1);
 }
 
 window.startFunction = startFunction;
